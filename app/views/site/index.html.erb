@@ -1,0 +1,26 @@
+<html>
+<head>
+	<style>
+	body {	
+		text-align: center;
+		color: white;
+	}
+	h1 { font-size: 144px; }
+	a { color: white; }
+	body {
+	<% if @is_sunny %>
+		background-color: blue;
+	<% else %>
+		background-color: gray;
+	<% end %>
+	}
+	</style>
+	<title><%= "Is it sunny in #{@weather.location.city}?"-%></title>
+</head>
+<body>
+<h1><%= @is_sunny ? "YES." : "NO." %></h1>
+<p>It is currently <a href='<%= @weather.page_url -%>'>
+<%= @weather.condition.text.downcase -%> in <%= @weather.location.city -%></a>.
+</p>
+</body>
+</html>
